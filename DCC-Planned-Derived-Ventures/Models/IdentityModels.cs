@@ -29,5 +29,13 @@ namespace DCC_Planned_Derived_Ventures.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<DCC_Planned_Derived_Ventures.Models.Address> Addresses { get; set; }
+        public System.Data.Entity.DbSet<DCC_Planned_Derived_Ventures.Models.Itinerary> Itineraries { get; set; }
+        public System.Data.Entity.DbSet<DCC_Planned_Derived_Ventures.Models.ItineraryAddressJunction> ItineraryAddressJunctions { get; set; }
+        public System.Data.Entity.DbSet<DCC_Planned_Derived_Ventures.Models.City> Cities { get; set; }
+        public System.Data.Entity.DbSet<DCC_Planned_Derived_Ventures.Models.USStates> USStates { get; set; }
+        public System.Data.Entity.DbSet<DCC_Planned_Derived_Ventures.Models.Zip> Zips { get; set; }
+
     }
 }
