@@ -9,6 +9,7 @@ namespace DCC_Planned_Derived_Ventures.Models
 {
     public class ItineraryAddressJunction
     {
+        //comment
         [Key, Column(Order = 0)]
         [ForeignKey("Address")]
         public int AddressId { get; set; }
