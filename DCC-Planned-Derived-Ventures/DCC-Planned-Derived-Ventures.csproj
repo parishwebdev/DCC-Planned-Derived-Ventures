@@ -207,6 +207,10 @@
     <Compile Include="Migrations\201808011152295_Renamed USStates model to USState.Designer.cs">
       <DependentUpon>201808011152295_Renamed USStates model to USState.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808011203203_USStates seed.cs" />
+    <Compile Include="Migrations\201808011203203_USStates seed.Designer.cs">
+      <DependentUpon>201808011203203_USStates seed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -304,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808011152295_Renamed USStates model to USState.resx">
       <DependentUpon>201808011152295_Renamed USStates model to USState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808011203203_USStates seed.resx">
+      <DependentUpon>201808011203203_USStates seed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
