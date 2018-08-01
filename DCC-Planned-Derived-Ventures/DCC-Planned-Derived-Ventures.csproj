@@ -203,6 +203,10 @@
     <Compile Include="Migrations\201807290205168_second migration.Designer.cs">
       <DependentUpon>201807290205168_second migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808011152295_Renamed USStates model to USState.cs" />
+    <Compile Include="Migrations\201808011152295_Renamed USStates model to USState.Designer.cs">
+      <DependentUpon>201808011152295_Renamed USStates model to USState.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -212,7 +216,7 @@
     <Compile Include="Models\Itinerary.cs" />
     <Compile Include="Models\ItineraryAddressJunction.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\USStates.cs" />
+    <Compile Include="Models\USState.cs" />
     <Compile Include="Models\Zip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -297,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807290205168_second migration.resx">
       <DependentUpon>201807290205168_second migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808011152295_Renamed USStates model to USState.resx">
+      <DependentUpon>201808011152295_Renamed USStates model to USState.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
