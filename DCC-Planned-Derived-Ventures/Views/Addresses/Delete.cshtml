@@ -1,0 +1,56 @@
+﻿@model DCC_Planned_Derived_Ventures.Models.Address
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Address</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.City.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State.abbrev)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State.abbrev)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressLine)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,50 @@
+﻿@model DCC_Planned_Derived_Ventures.Models.Address
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Address</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.City.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State.abbrev)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State.abbrev)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AddressLine)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AddressLine)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

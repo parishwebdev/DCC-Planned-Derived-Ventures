@@ -31,5 +31,7 @@ namespace DCC_Planned_Derived_Ventures.Models
         public USStates State { get; set; }
 
 
+        public ICollection<Itinerary> Itineraries { get; set; }
+         
     }
 }

@@ -13,6 +13,7 @@ namespace DCC_Planned_Derived_Ventures.Controllers
     [Authorize]
     public class ManageController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -25,6 +26,20 @@ namespace DCC_Planned_Derived_Ventures.Controllers
             UserManager = userManager;
             SignInManager = signInManager;
         }
+
+        #region UserProfile
+
+        public ActionResult UserPortal()
+        {
+             
+            var currentId = User.Identity.GetUserId();
+            var currentUser = db.Users.Where(user => user.Id == currentId).Single();
+
+            return View(currentUser);
+        }
+
+
+        #endregion
 
         public ApplicationSignInManager SignInManager
         {

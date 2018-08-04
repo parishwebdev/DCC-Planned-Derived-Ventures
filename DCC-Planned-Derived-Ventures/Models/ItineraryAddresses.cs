@@ -7,17 +7,17 @@ using System.Web;
 
 namespace DCC_Planned_Derived_Ventures.Models
 {
-    public class ItineraryAddressJunction
+    public class ItineraryAddresses
     {
-        //comment
-        [Key, Column(Order = 0)]
+        [Key]
+        public int ID { get; set; }
+
         [ForeignKey("Address")]
         public int AddressId { get; set; }
-        public Address Address { get; set; }
-
-        [Key, Column(Order = 1)]
-        [ForeignKey("Itinerary")]
+         [ForeignKey("Itinerary")]
         public int ItineraryId { get; set; }
-        public Itinerary Itinerary { get; set; }
+
+         public virtual Address Address { get; set; }
+         public virtual Itinerary Itinerary { get; set; }
     }
 }

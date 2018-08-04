@@ -1,0 +1,11 @@
+﻿@model DCC_Planned_Derived_Ventures.Models.ApplicationUser
+@{
+    ViewBag.Title = "UserPortal";
+}
+
+<h2>User Portal</h2>
+
+@Html.DisplayFor(model => model.Email)
+
+<h3>Create Itinerary: </h3>
+<a href="@Url.Action( "Create", "Addresses")" class="btn btn-outline-primary">Create</a>

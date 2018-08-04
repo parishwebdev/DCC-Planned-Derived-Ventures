@@ -1,0 +1,64 @@
+﻿@model DCC_Planned_Derived_Ventures.Models.Itinerary
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Itinerary</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MilesAroundRoute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MilesAroundRoute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartAddressID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartAddressID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DestinationId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DestinationId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUserId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUserId)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
