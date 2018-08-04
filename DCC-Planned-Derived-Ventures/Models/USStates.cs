@@ -6,7 +6,7 @@ using System.Web;
 
 namespace DCC_Planned_Derived_Ventures.Models
 {
-    public class USState
+    public class USStates
     {
 
         [Key]

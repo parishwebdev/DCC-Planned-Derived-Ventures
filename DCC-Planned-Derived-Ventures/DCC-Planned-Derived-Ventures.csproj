@@ -211,6 +211,10 @@
     <Compile Include="Migrations\201808011203203_USStates seed.Designer.cs">
       <DependentUpon>201808011203203_USStates seed.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808041917472_Renamed USState model back to USStates cuz Matt is a putz.cs" />
+    <Compile Include="Migrations\201808041917472_Renamed USState model back to USStates cuz Matt is a putz.Designer.cs">
+      <DependentUpon>201808041917472_Renamed USState model back to USStates cuz Matt is a putz.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Address.cs" />
@@ -220,7 +224,7 @@
     <Compile Include="Models\Itinerary.cs" />
     <Compile Include="Models\ItineraryAddressJunction.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\USState.cs" />
+    <Compile Include="Models\USStates.cs" />
     <Compile Include="Models\Zip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -311,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201808011203203_USStates seed.resx">
       <DependentUpon>201808011203203_USStates seed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808041917472_Renamed USState model back to USStates cuz Matt is a putz.resx">
+      <DependentUpon>201808041917472_Renamed USState model back to USStates cuz Matt is a putz.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -28,7 +28,7 @@ namespace DCC_Planned_Derived_Ventures.Models
         [ForeignKey("State")]
         [Display(Name = "State")]
         public int StateId { get; set; }
-        public USState State { get; set; }
+        public USStates State { get; set; }
 
 
     }
