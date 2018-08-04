@@ -7,13 +7,13 @@ namespace DCC_Planned_Derived_Ventures.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class secondmigration : IMigrationMetadata
+    public sealed partial class initmigattempt3 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(secondmigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initmigattempt3));
         
         string IMigrationMetadata.Id
         {
-            get { return "201807290205168_second migration"; }
+            get { return "201808042245460_init mig attempt 3"; }
         }
         
         string IMigrationMetadata.Source

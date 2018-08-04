@@ -37,8 +37,8 @@ namespace DCC_Planned_Derived_Ventures.Controllers
 
             foreach (var ia in itinAddToSpecficItin)
             {
-                Address address = db.Addresses.Where(ad => ad.ID == ia.AddressId).Single();
-                itinerary.Addresses.Add(address);
+                var address = db.Addresses.Where(ad => ad.ID == ia.AddressId);
+                itinerary.Addresses = address;
             }
 
 

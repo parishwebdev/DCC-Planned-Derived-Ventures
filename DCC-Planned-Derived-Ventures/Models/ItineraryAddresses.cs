@@ -17,7 +17,7 @@ namespace DCC_Planned_Derived_Ventures.Models
          [ForeignKey("Itinerary")]
         public int ItineraryId { get; set; }
 
-         public virtual Address Address { get; set; }
-         public virtual Itinerary Itinerary { get; set; }
+         public  Address Address { get; set; }
+         public  Itinerary Itinerary { get; set; }
     }
 }

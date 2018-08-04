@@ -199,14 +199,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201807290134218_Initial Migration.cs" />
-    <Compile Include="Migrations\201807290134218_Initial Migration.Designer.cs">
-      <DependentUpon>201807290134218_Initial Migration.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201807290205168_second migration.cs" />
-    <Compile Include="Migrations\201807290205168_second migration.Designer.cs">
-      <DependentUpon>201807290205168_second migration.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Migrations\201808042245460_init mig attempt 3.cs" />
+    <Compile Include="Migrations\201808042245460_init mig attempt 3.Designer.cs">
+      <DependentUpon>201808042245460_init mig attempt 3.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -308,78 +303,12 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201807290134218_Initial Migration.resx">
-      <DependentUpon>201807290134218_Initial Migration.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201807290205168_second migration.resx">
-      <DependentUpon>201807290205168_second migration.cs</DependentUpon>
-    </EmbeddedResource>
-<<<<<<< HEAD
-    <EmbeddedResource Include="Migrations\201808011152295_Renamed USStates model to USState.resx">
-      <DependentUpon>201808011152295_Renamed USStates model to USState.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808011203203_USStates seed.resx">
-      <DependentUpon>201808011203203_USStates seed.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808041917472_Renamed USState model back to USStates cuz Matt is a putz.resx">
-      <DependentUpon>201808041917472_Renamed USState model back to USStates cuz Matt is a putz.cs</DependentUpon>
-    </EmbeddedResource>
-=======
-    <EmbeddedResource Include="Migrations\201808012053016_restarting with trying to get rid of manual junction table.resx">
-      <DependentUpon>201808012053016_restarting with trying to get rid of manual junction table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808012056344_trying new way for auto creating junction sql table.resx">
-      <DependentUpon>201808012056344_trying new way for auto creating junction sql table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808012134473_adding migration so, I can seed states.resx">
-      <DependentUpon>201808012134473_adding migration so, I can seed states.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808012320398_Readding model for junction.resx">
-      <DependentUpon>201808012320398_Readding model for junction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808012328424_adding back itineraryaddress model.resx">
-      <DependentUpon>201808012328424_adding back itineraryaddress model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808012334544_Changing to the way teacher suggested.resx">
-      <DependentUpon>201808012334544_Changing to the way teacher suggested.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808022034457_tring something from an example virtual.resx">
-      <DependentUpon>201808022034457_tring something from an example virtual.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808022057388_added a change to itineraryaddress model in hope to see table added to db.resx">
-      <DependentUpon>201808022057388_added a change to itineraryaddress model in hope to see table added to db.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808022104462_got rid of extra property.resx">
-      <DependentUpon>201808022104462_got rid of extra property.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808022304262_did I change something.resx">
-      <DependentUpon>201808022304262_did I change something.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808030009560_fixed spelling in itinadd.resx">
-      <DependentUpon>201808030009560_fixed spelling in itinadd.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808041659174_added attribute to ItinAddr Model.resx">
-      <DependentUpon>201808041659174_added attribute to ItinAddr Model.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808041757108_Adding Identity true to id in itinaddres .resx">
-      <DependentUpon>201808041757108_Adding Identity true to id in itinaddres .cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808041811101_drop itin address table.resx">
-      <DependentUpon>201808041811101_drop itin address table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808041835322_hopefully drop itin addr.resx">
-      <DependentUpon>201808041835322_hopefully drop itin addr.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808041842085_HopeFully now correct itineraryaddress.resx">
-      <DependentUpon>201808041842085_HopeFully now correct itineraryaddress.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201808042146510_tring to get rid of ghost table.resx">
-      <DependentUpon>201808042146510_tring to get rid of ghost table.cs</DependentUpon>
-    </EmbeddedResource>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
->>>>>>> Victor troubleshoot
+    <EmbeddedResource Include="Migrations\201808042245460_init mig attempt 3.resx">
+      <DependentUpon>201808042245460_init mig attempt 3.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

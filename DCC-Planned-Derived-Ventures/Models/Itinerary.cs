@@ -27,6 +27,6 @@ namespace  DCC_Planned_Derived_Ventures.Models
 
         public string AspNetUserId { get; set; }
 
-        public virtual ICollection<Address> Addresses { get; set; } 
+        public IEnumerable<Address> Addresses { get; set; } 
     }
 }
