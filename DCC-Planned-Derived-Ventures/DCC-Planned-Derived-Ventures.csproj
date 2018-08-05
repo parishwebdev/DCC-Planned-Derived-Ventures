@@ -199,9 +199,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201808042245460_init mig attempt 3.cs" />
-    <Compile Include="Migrations\201808042245460_init mig attempt 3.Designer.cs">
-      <DependentUpon>201808042245460_init mig attempt 3.cs</DependentUpon>
+    <Compile Include="Migrations\201808050029346_init.cs" />
+    <Compile Include="Migrations\201808050029346_init.Designer.cs">
+      <DependentUpon>201808050029346_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -285,6 +285,7 @@
     <Content Include="Views\Itineraries\Edit.cshtml" />
     <Content Include="Views\Itineraries\Index.cshtml" />
     <Content Include="Views\Manage\UserPortal.cshtml" />
+    <Content Include="Views\Itineraries\UserItineraries.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -306,8 +307,8 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201808042245460_init mig attempt 3.resx">
-      <DependentUpon>201808042245460_init mig attempt 3.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201808050029346_init.resx">
+      <DependentUpon>201808050029346_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

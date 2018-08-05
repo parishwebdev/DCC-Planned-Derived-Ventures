@@ -21,6 +21,13 @@ namespace DCC_Planned_Derived_Ventures.Controllers
             return View(db.Itineraries.ToList());
         }
 
+        public ActionResult UserItineraries()
+        {
+            var currentUserId = User.Identity.GetUserId();
+            return View(db.Itineraries.ToList().Where(itin => itin.AspNetUserId == currentUserId));
+        }
+
+
         // GET: Itineraries/Details/5
         public ActionResult Details(int? id)
         {
@@ -30,14 +37,14 @@ namespace DCC_Planned_Derived_Ventures.Controllers
             }
             Itinerary itinerary = db.Itineraries.Find(id);
 
-
+            
 
             var itinAddToSpecficItin = db.ItineraryAddresses.Where(ia => ia.ItineraryId == itinerary.ID);
-
-
             foreach (var ia in itinAddToSpecficItin)
             {
-                var address = db.Addresses.Where(ad => ad.ID == ia.AddressId);
+                var address = db.Addresses.Where(ad => ad.ID == ia.AddressId).Include(c => c.City)
+                                   .Include(c => c.State)
+                                   .Include(c => c.ZipCode);
                 itinerary.Addresses = address;
             }
 
@@ -78,7 +85,7 @@ namespace DCC_Planned_Derived_Ventures.Controllers
 
 
                 
-                return RedirectToAction("Index");
+                return RedirectToAction("UserItineraries", "Itineraries");
             }
 
             return View(itinerary);
@@ -118,7 +125,7 @@ namespace DCC_Planned_Derived_Ventures.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,name,MilesAroundRoute,StartAddressID,DestinationId,AspNetUserId")] Itinerary itinerary)
+        public ActionResult Edit([Bind(Include = "ID,name,MilesAroundRoute,DestinationId,AspNetUserId")] Itinerary itinerary)
         {
             if (ModelState.IsValid)
             {

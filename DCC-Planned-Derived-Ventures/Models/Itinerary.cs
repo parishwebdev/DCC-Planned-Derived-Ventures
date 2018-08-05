@@ -15,14 +15,9 @@ namespace  DCC_Planned_Derived_Ventures.Models
 
         public int MilesAroundRoute { get; set; }
 
-
-        //Start
-        public int StartAddressID { get; set; }
-        public ItineraryAddresses StartItineraryAddress { get; set; }
-
+         
         //Destination
         public int DestinationId { get; set; }
-        public ItineraryAddresses DestinationItineraryAddress { get; set; }
 
 
         public string AspNetUserId { get; set; }

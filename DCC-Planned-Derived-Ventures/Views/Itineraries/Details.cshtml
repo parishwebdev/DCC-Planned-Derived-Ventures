@@ -26,31 +26,29 @@
             @Html.DisplayFor(model => model.MilesAroundRoute)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StartAddressID)
-        </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.StartAddressID)
-        </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DestinationId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.DestinationId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AspNetUserId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AspNetUserId)
-        </dd>
 
     </dl>
+
+    @foreach (var address in Model.Addresses)
+    {
+        if (Model.DestinationId == address.ID)
+        {
+            <div class="text-bold">
+                <h4>Destination Address</h4>
+
+                @Html.DisplayFor(item => address.AddressLine)
+                @Html.DisplayFor(item => address.City.name)
+            </div>
+        }
+        else if (Model.DestinationId != address.ID)
+        {
+
+            @Html.DisplayFor(item => address.AddressLine)
+            @Html.DisplayFor(item => address.City.name)
+        }
+    }
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |

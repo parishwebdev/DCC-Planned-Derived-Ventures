@@ -4,8 +4,16 @@
 }
 
 <h2>User Portal</h2>
+<p class="text-bold ml-2"> - @Html.DisplayFor(model => model.Email)</p>
 
-@Html.DisplayFor(model => model.Email)
 
-<h3>Create Itinerary: </h3>
-<a href="@Url.Action( "Create", "Addresses")" class="btn btn-outline-primary">Create</a>
+<div class="row text-center">
+    <div class="col-md-3">
+        <h3>Create Itinerary: </h3>
+        <a href="@Url.Action( "Create", "Addresses")" class="btn btn-outline-primary">Create</a>
+    </div>
+    <div class="col-md-3">
+        <h3>View Your Itineraries</h3>
+        <a href="@Url.Action( "UserItineraries", "Itineraries")" class="btn btn-outline-primary">View</a>
+    </div>
+</div>

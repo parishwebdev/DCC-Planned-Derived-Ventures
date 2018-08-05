@@ -3,7 +3,7 @@ namespace DCC_Planned_Derived_Ventures.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initmigattempt3 : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -60,17 +60,10 @@ namespace DCC_Planned_Derived_Ventures.Migrations
                         ID = c.Int(nullable: false, identity: true),
                         name = c.String(),
                         MilesAroundRoute = c.Int(nullable: false),
-                        StartAddressID = c.Int(nullable: false),
                         DestinationId = c.Int(nullable: false),
                         AspNetUserId = c.String(),
-                        DestinationItineraryAddress_ID = c.Int(),
-                        StartItineraryAddress_ID = c.Int(),
                     })
-                .PrimaryKey(t => t.ID)
-                .ForeignKey("dbo.ItineraryAddresses", t => t.DestinationItineraryAddress_ID)
-                .ForeignKey("dbo.ItineraryAddresses", t => t.StartItineraryAddress_ID)
-                .Index(t => t.DestinationItineraryAddress_ID)
-                .Index(t => t.StartItineraryAddress_ID);
+                .PrimaryKey(t => t.ID);
             
             CreateTable(
                 "dbo.ItineraryAddresses",
@@ -162,8 +155,6 @@ namespace DCC_Planned_Derived_Ventures.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
-            DropForeignKey("dbo.Itineraries", "StartItineraryAddress_ID", "dbo.ItineraryAddresses");
-            DropForeignKey("dbo.Itineraries", "DestinationItineraryAddress_ID", "dbo.ItineraryAddresses");
             DropForeignKey("dbo.ItineraryAddresses", "ItineraryId", "dbo.Itineraries");
             DropForeignKey("dbo.ItineraryAddresses", "AddressId", "dbo.Addresses");
             DropForeignKey("dbo.Addresses", "ZipId", "dbo.Zips");
@@ -177,8 +168,6 @@ namespace DCC_Planned_Derived_Ventures.Migrations
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.ItineraryAddresses", new[] { "ItineraryId" });
             DropIndex("dbo.ItineraryAddresses", new[] { "AddressId" });
-            DropIndex("dbo.Itineraries", new[] { "StartItineraryAddress_ID" });
-            DropIndex("dbo.Itineraries", new[] { "DestinationItineraryAddress_ID" });
             DropIndex("dbo.Addresses", new[] { "StateId" });
             DropIndex("dbo.Addresses", new[] { "ZipId" });
             DropIndex("dbo.Addresses", new[] { "CityId" });
