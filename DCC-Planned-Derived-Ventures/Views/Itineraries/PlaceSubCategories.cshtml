@@ -1,0 +1,41 @@
+﻿@model DCC_Planned_Derived_Ventures.Models.Itinerary
+@{
+    ViewBag.Title = "PlaceSubCategories";
+}
+
+
+
+<div class="row">
+    <h2 class="text-capitalize mb-2 mt-2 col-md-12">Sub Categories of @ViewBag.MainCat</h2>
+
+    @foreach (var subcat in ViewBag.SubCats)
+    {
+        <a href="@Url.Action("SubCategoryPlaces","Itineraries",new {itineraryID = Model.ID, subCat = @subcat })" class="btn text-white text-center bg-primary col-md-3 mb-2 mr-1">
+            <span class=" text-capitalize">@subcat</span>
+        </a>
+
+    }
+</div>
+
+
+
+
+<div class="mt-4">
+    <a href="@Url.Action("Details","Itineraries",new { id = Model.ID})" class="btn btn-outline-primary mb-1"><i class="fas fa-chevron-circle-left"></i> &nbsp; Back To List &nbsp; </a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

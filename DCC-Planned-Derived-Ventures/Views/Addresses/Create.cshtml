@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create Address</h2>
 
 
 @using (Html.BeginForm()) 
@@ -24,18 +24,16 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CityId, "CityId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <label for="City" class="control-label col-md-2">City Name: </label>
             <div class="col-md-10">
-                @Html.DropDownList("CityId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CityId, "", new { @class = "text-danger" })
+                <input type="text" id="City" name="City" class="form-control" />
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ZipId, "ZipId", htmlAttributes: new { @class = "control-label col-md-2" })
+            <label for="ZipCode" class="control-label col-md-2">ZipCode</label>
             <div class="col-md-10">
-                @Html.DropDownList("ZipId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ZipId, "", new { @class = "text-danger" })
+                <input type="number" id="Zipcode" name="Zipcode" class="form-control" />
             </div>
         </div>
 

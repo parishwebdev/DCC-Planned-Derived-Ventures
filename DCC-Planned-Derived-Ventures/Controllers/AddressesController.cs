@@ -39,21 +39,22 @@ namespace DCC_Planned_Derived_Ventures.Controllers
         // GET: Addresses/Create
         public ActionResult Create()
         {
-            ViewBag.CityId = new SelectList(db.Cities, "ID", "name");
             ViewBag.StateId = new SelectList(db.USStates, "ID", "abbrev");
-            ViewBag.ZipId = new SelectList(db.Zips, "ID", "ZipCode");
             return View();
         }
 
         // POST: Addresses/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+       /* [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,AddressLine,CityId,ZipId,StateId")] Address address)
         {
             if (ModelState.IsValid)
             {
+
+
+
                 db.Addresses.Add(address);
                 db.SaveChanges();
                 return RedirectToAction("Create","Itineraries", new { DestinationId = address.ID });
@@ -63,7 +64,63 @@ namespace DCC_Planned_Derived_Ventures.Controllers
             ViewBag.StateId = new SelectList(db.USStates, "ID", "abbrev", address.StateId);
             ViewBag.ZipId = new SelectList(db.Zips, "ID", "ZipCode", address.ZipId);
             return View(address);
+        }*/
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(string City, int Zipcode,[Bind(Include = "ID,AddressLine,StateId")] Address address)
+        {
+            if (ModelState.IsValid)
+            {
+                if (db.Cities.Any(c => c.name == City))
+                {
+                    City city = db.Cities.Where(c => c.name == City).Single();
+                    address.CityId = city.ID;
+                }
+                if (db.Zips.Any(z => z.ZipCode == Zipcode))
+                {
+                    Zip zip = db.Zips.Where(z => z.ZipCode == Zipcode).Single();
+                    address.ZipId = zip.ID;
+                }
+                else
+                {
+                    InsertCity(City);
+                    InsertZip(Zipcode);
+
+                    City city = db.Cities.Where(c => c.name == City).Single();
+                    address.CityId = city.ID;
+
+                    Zip zip = db.Zips.Where(z => z.ZipCode == Zipcode).Single();
+                    address.ZipId = zip.ID;
+                }
+
+                db.Addresses.Add(address);
+                db.SaveChanges();
+                return RedirectToAction("Create", "Itineraries", new { DestinationId = address.ID });
+            }
+            
+            ViewBag.StateId = new SelectList(db.USStates, "ID", "abbrev", address.StateId);
+            return View(address);
         }
+
+        private void InsertCity(string CityName)
+        {
+            City city = new City();
+            city.name = CityName;
+
+            db.Cities.Add(city);
+            db.SaveChanges();
+
+        }
+        private void InsertZip(int ZipCode)
+        {
+            Zip zip = new Zip();
+            zip.ZipCode = ZipCode;
+
+            db.Zips.Add(zip);
+            db.SaveChanges();
+        }
+
 
         // GET: Addresses/Edit/5
         public ActionResult Edit(int? id)

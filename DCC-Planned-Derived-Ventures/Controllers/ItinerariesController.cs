@@ -37,16 +37,8 @@ namespace DCC_Planned_Derived_Ventures.Controllers
             }
             Itinerary itinerary = db.Itineraries.Find(id);
 
-            
 
-            var itinAddToSpecficItin = db.ItineraryAddresses.Where(ia => ia.ItineraryId == itinerary.ID);
-            foreach (var ia in itinAddToSpecficItin)
-            {
-                var address = db.Addresses.Where(ad => ad.ID == ia.AddressId).Include(c => c.City)
-                                   .Include(c => c.State)
-                                   .Include(c => c.ZipCode);
-                itinerary.Addresses = address;
-            }
+            SetAddresses(itinerary);
 
 
 
@@ -56,6 +48,65 @@ namespace DCC_Planned_Derived_Ventures.Controllers
             }
             return View(itinerary);
         }
+
+        private void SetAddresses(Itinerary itinerary)
+        {
+            var itinAddToSpecficItin = db.ItineraryAddresses.Where(ia => ia.ItineraryId == itinerary.ID);
+            foreach (var ia in itinAddToSpecficItin)
+            {
+                var address = db.Addresses.Where(ad => ad.ID == ia.AddressId).Include(c => c.City)
+                                   .Include(c => c.State)
+                                   .Include(c => c.ZipCode);
+                itinerary.Addresses = address;
+            }
+        }
+
+        public ActionResult PlaceSubCategories(string mainCat, int itineraryID)
+        {
+
+            ViewBag.MainCat = mainCat;
+            ViewBag.SubCats = null;
+
+
+            Itinerary itinerary = db.Itineraries.Find(itineraryID);
+
+            if (mainCat == "food")
+            {
+                List<string> subCats = new List<string>() {"Bakery","Resturant"};
+                ViewBag.SubCats = subCats;
+                return View(itinerary);
+            }
+            else if (mainCat == "attractions")
+            {
+                List<string> subCats = new List<string>() { "aquarium","bowling_alley", "art_gallery" };
+                ViewBag.SubCats = subCats;
+                return View(itinerary);
+            }
+            
+            return View(itinerary);
+            
+        }
+
+        public ActionResult SubCategoryPlaces(string subCat, int itineraryID)
+        {
+            ViewBag.GoogleKey = System.Web.Configuration.WebConfigurationManager.AppSettings["GoogleMapsApiKey"];
+            Itinerary itinerary = db.Itineraries.Find(itineraryID);
+            ViewBag.ChoosenSubCat = subCat;
+
+            SetAddresses(itinerary);
+            ViewBag.DestinationAddress = GetDestinationAddress(itinerary);
+
+
+            return View(itinerary);
+        }
+
+        private Address GetDestinationAddress(Itinerary itinerary)
+        {
+           Address destination;
+           return destination = itinerary.Addresses.Where(a => a.ID == itinerary.DestinationId).Single();
+        }
+
+
 
         // GET: Itineraries/Create
         public ActionResult Create(int DestinationId)
@@ -82,10 +133,7 @@ namespace DCC_Planned_Derived_Ventures.Controllers
 
                InsertStartAndStopIdsToNewIntineraryAddress(itinerary);
                 
-
-
-                
-                return RedirectToAction("UserItineraries", "Itineraries");
+               return RedirectToAction("Details", "Itineraries", new { Id = itinerary.ID });
             }
 
             return View(itinerary);
