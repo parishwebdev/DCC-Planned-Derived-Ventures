@@ -72,13 +72,13 @@ namespace DCC_Planned_Derived_Ventures.Controllers
 
             if (mainCat == "food")
             {
-                List<string> subCats = new List<string>() {"Bakery","Resturant"};
+                List<string> subCats = new List<string>() { "bakery", "restaurant", "cafe" };
                 ViewBag.SubCats = subCats;
                 return View(itinerary);
             }
             else if (mainCat == "attractions")
             {
-                List<string> subCats = new List<string>() { "aquarium","bowling_alley", "art_gallery" };
+                List<string> subCats = new List<string>() { "amusement_park", "aquarium","bowling_alley", "art_gallery", "casino", "movie_theater", "museum", "night_club", "park", "spa" , "stadium", "zoo" };
                 ViewBag.SubCats = subCats;
                 return View(itinerary);
             }
@@ -179,7 +179,7 @@ namespace DCC_Planned_Derived_Ventures.Controllers
             {
                 db.Entry(itinerary).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", "Itineraries", new { Id = itinerary.ID });
             }
             return View(itinerary);
         }

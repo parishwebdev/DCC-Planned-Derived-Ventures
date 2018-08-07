@@ -9,11 +9,19 @@
 
 <div class="row text-center">
     <div class="col-md-3">
-        <h3>Create Itinerary: </h3>
-        <a href="@Url.Action( "Create", "Addresses")" class="btn btn-outline-primary">Create</a>
+        <div class="card">
+            <div class="card-body text-white bg-primary mb-3">
+                <h3>Create Itinerary: </h3>
+                <a href="@Url.Action( "Create", "Addresses")" class="btn btn-outline-light">Create</a>
+            </div>
+        </div>
     </div>
     <div class="col-md-3">
-        <h3>View Your Itineraries</h3>
-        <a href="@Url.Action( "UserItineraries", "Itineraries")" class="btn btn-outline-primary">View</a>
+        <div class="card text-white bg-primary mb-3">
+            <div class="card-body">
+                <h4>View Your Itineraries</h4>
+                <a href="@Url.Action( "UserItineraries", "Itineraries")" class="btn btn-outline-light">View</a>
+            </div>
+        </div>
     </div>
-</div>
+  </div>

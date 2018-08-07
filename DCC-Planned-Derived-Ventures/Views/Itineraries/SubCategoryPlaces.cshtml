@@ -29,15 +29,14 @@
 
     #right-panel {
         font-family: Arial, Helvetica, sans-serif;
-        height: 330px;
-        width: 200px;
+        width: 100%;
         padding: 5px;
         z-index: 5;
         border: 1px solid #999;
         background: #fff;
     }
 
-    h2 {
+    #right-panel h2 {
         font-size: 22px;
         margin: 0 0 5px 0;
     }
@@ -45,10 +44,8 @@
     #right-panel ul {
         list-style-type: none;
         padding: 0;
-        margin: 0;
-        height: 271px;
-        width: 200px;
-        overflow-y: scroll;
+        margin: 0; 
+        overflow-y: hidden;
     }
 
     #places li {
@@ -70,26 +67,29 @@
 </style>
 
 <h1>Sub-Category Places</h1>
-
 <br />
 
-<h4> @ViewBag.ChoosenSubCat </h4>
+<h4 class="text-capitalize"> @ViewBag.ChoosenSubCat </h4>
 
 <div class="row col-md-12">
     <div id="map" style="width: 35rem; height: 19.95rem;"></div>
 </div>
 <div class="row col-md-12">
-    <div id="right-panel">
+    <div id="right-panel" class="my-3 ">
         <h2>Results</h2>
-        <ul id="places"></ul>
+        <div id="places" class="row"></div>
         <button id="more">More results</button>
     </div>
 </div>
 
+
+<br />
+<a href="@Url.Action("Details", new { id = Model.ID })" class="btn btn-outline-primary my-2"> <i class="fas fa-chevron-circle-left"></i> &nbsp; Back To Itinerary &nbsp; </a>
+
 <script>
 
     var map;
-    
+
 
     function initMap() {
         // Create the map.
@@ -110,7 +110,7 @@
             center: currentDest,
             zoom: 8
         });
-       
+
 
         // Create the places service.
         var service = new google.maps.places.PlacesService(map);
@@ -120,11 +120,14 @@
             moreButton.disabled = true;
             if (getNextPage) getNextPage();
         };
-        
+
+
+        var meterFromMileAround = Math.ceil( @Model.MilesAroundRoute / 0.00062137 );
+
 
         // Perform a nearby search.
         service.nearbySearch(
-            { location: currentDest, radius: 1500, type: ['@ViewBag.ChoosenSubCat'] },
+            { location: currentDest, radius: meterFromMileAround, type: ['@ViewBag.ChoosenSubCat'] },
             function (results, status, pagination) {
                 if (status !== 'OK') return;
 
@@ -135,6 +138,9 @@
                 };
             });
     }
+
+
+
 
     function createMarkers(places) {
         var bounds = new google.maps.LatLngBounds();
@@ -156,14 +162,43 @@
                 position: place.geometry.location
             });
 
-            var li = document.createElement('li');
-            li.textContent = place.name;
-            placesList.appendChild(li);
+            
+    
+            var colDiv = document.createElement('div');
+            colDiv.className = "col-md-4 my-3 text-center";
+
+            var cardDiv = document.createElement('div');
+            cardDiv.className = "card bg-primary text-white ";
+             
+            var cardBodyDiv = document.createElement('div');
+            cardBodyDiv.className = "card-body";
+            cardBodyDiv.textContent = place.vicinity;
+
+            var cardTitle = document.createElement('h5');
+            cardTitle.className = "card-title";
+            cardTitle.textContent = place.name;
+            
+
+
+            placesList.appendChild(colDiv).appendChild(cardDiv).appendChild(cardBodyDiv).appendChild(cardTitle)
+
 
             bounds.extend(place.geometry.location);
         }
         map.fitBounds(bounds);
     }
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 

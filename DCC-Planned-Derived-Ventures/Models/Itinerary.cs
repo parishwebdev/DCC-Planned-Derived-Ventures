@@ -11,8 +11,10 @@ namespace  DCC_Planned_Derived_Ventures.Models
         [Key]
         public int ID { get; set; }
 
+        [Display(Name = "Itinerary Name")]
         public string name { get; set; }
 
+        [Display(Name = "Miles Around Destination")]
         public int MilesAroundRoute { get; set; }
 
          

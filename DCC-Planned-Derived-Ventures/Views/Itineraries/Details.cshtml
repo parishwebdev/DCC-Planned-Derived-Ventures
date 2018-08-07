@@ -85,5 +85,6 @@
 
     </div>
     <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) 
+        <a class="nav-link" href="@Url.Action("Edit", "Itineraries", new { id = Model.ID })">  <i class="fas fa-edit"></i> </a>
+        
     </p>
