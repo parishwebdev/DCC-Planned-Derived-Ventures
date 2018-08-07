@@ -9,9 +9,9 @@
         <ul class="nav navbar-nav navbar-right text-white">
 
               <li>
-                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "! ", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = "text-white" })
-            </li> &nbsp;
-            <li><a class="text-white" href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "! ", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", @class = " nav-link" })
+            </li> &nbsp; &nbsp;
+            <li><a class="nav-link" href="javascript:document.getElementById('logoutForm').submit()">Log off  &nbsp; <i class="fas fa-sign-out-alt"></i></a></li>
         </ul>
     }
 }

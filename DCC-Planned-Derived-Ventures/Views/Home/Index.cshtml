@@ -2,20 +2,32 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Planned Derived Ventures</h1>
-    <p class="lead">Web App, for planning ventures along your destination city.</p> 
-    <a class="btn btn-primary btn-lg" href="@Url.Action( "Register", "Account")">Register &nbsp;<i class="fas fa-user-plus"></i></a>
-</div>
+<div id="homeJumbotron" class="jumbotron mt-5">
+    <div id="innerJumbotron" class="p-3">
+        <h1>Planned Derived Ventures</h1>
+        <p class="lead">Web App, for planning ventures around your destination city.</p>
+        @if (!User.Identity.IsAuthenticated)
+          {
+        <a class="btn btn-primary btn-lg" href="@Url.Action("Register", "Account")">Register &nbsp;<i class="fas fa-user-plus"></i></a>
+         }
+    </div>
+ </div>
 
 <div class="row">
     <div class="col-md-4 text-center">
-        <h2>Plan your Trip</h2> 
+        <div class="card border-dark mt-1 mb-3 p-4">
+            <h2>Plan your Trip</h2>
+        </div>
     </div>
     <div class="col-md-4 text-center">
-        <h2>Save stops it to plan an Itinerary</h2> 
+        <div class="card border-dark mt-1 mb-3 p-2">
+            <h2>Save stops it to plan an Itinerary</h2>
+        </div>
     </div>
     <div class="col-md-4 text-center">
-        <h2>Share it with friends/family</h2> 
+        <div class="card border-dark mt-1 mb-3 p-2">
+            <h2>Share it with friends/family</h2>
+        </div>
     </div>
+
 </div>

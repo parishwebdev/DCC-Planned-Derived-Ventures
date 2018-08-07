@@ -15,9 +15,6 @@
             @Html.DisplayNameFor(model => model.MilesAroundRoute)
         </th>
 
-        <th>
-            @Html.DisplayNameFor(model => model.DestinationId)
-        </th>
         <th></th>
     </tr>
 
@@ -31,9 +28,6 @@
                 @Html.DisplayFor(modelItem => item.MilesAroundRoute)
             </td>
 
-            <td>
-                @Html.DisplayFor(modelItem => item.DestinationId)
-            </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
                 @Html.ActionLink("View Itinerary", "Details", new { id = item.ID }) |

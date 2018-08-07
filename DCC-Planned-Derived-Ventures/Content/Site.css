@@ -27,3 +27,12 @@ textarea {
 .text-bold {
     font-weight: bold;
 }
+
+#homeJumbotron { 
+    background-image: url('img/directions.jpeg');
+}
+
+#innerJumbotron {
+    background: rgba(255,255,255, 0.85);
+    border-radius: 5px;
+}
