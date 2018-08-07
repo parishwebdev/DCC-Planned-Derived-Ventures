@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using DCC_Planned_Derived_Ventures.Models;
@@ -209,6 +210,38 @@ namespace DCC_Planned_Derived_Ventures.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        [ValidateInput(false)]
+        public ActionResult EmailItinerary(string To, string Body)
+        {
+            MailMessage m = new MailMessage("Uma<test@gmail.com>", To);
+            m.Subject = "Itenerary Email";
+            m.Body = Body;
+            m.IsBodyHtml = true;
+
+            m.From = new MailAddress("AwesomeVictorGarrettMatthew@gmail.com");
+
+            m.To.Add(new MailAddress(To));
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+
+
+            var userName = System.Web.Configuration.WebConfigurationManager.AppSettings["gEmailUsername"];
+            var password = System.Web.Configuration.WebConfigurationManager.AppSettings["gPassword"];
+
+            NetworkCredential authinfo = new NetworkCredential(userName, password);
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = authinfo;
+            smtp.EnableSsl = true;
+            smtp.Send(m);
+
+
+            return RedirectToAction("Index", "Home", null);
+        }
+
+
+
 
         protected override void Dispose(bool disposing)
         {

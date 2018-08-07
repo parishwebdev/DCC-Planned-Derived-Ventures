@@ -47,10 +47,10 @@
     </div>
 }
 
-    <div>
+   
        
-        <a class="nav-link" href="@Url.Action("UserItineraries", "Itineraries", new { id = Model.ID })">  <i class="fas fa-chevron-circle-left"></i> Back to your itinerary list </a>
-    </div>
+        <a class="btn btn-outline-primary btn-sm mt-4 ml-3" href="@Url.Action("UserItineraries", "Itineraries", new { id = Model.ID })">  <i class="fas fa-chevron-circle-left"></i> Back to your itinerary list </a>
+  
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

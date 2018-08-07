@@ -25,6 +25,7 @@ namespace DCC_Planned_Derived_Ventures
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/BS-Flatly-Theme.css",
                       "~/Content/site.css"));
         }
     }

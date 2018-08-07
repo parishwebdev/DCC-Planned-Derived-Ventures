@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 </head>
 <body>
-    <div class="navbar navbar-expand-sm fixed-top navbar-dark bg-secondary ">
+    <div class="navbar navbar-expand-sm fixed-top navbar-dark bg-primary ">
         @Html.ActionLink("Planned Derived Ventures", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -34,7 +34,7 @@
         </div>
 
     </div>
-    <div class="container mt-2 mb-1 body-content">
+    <div class="container mt-4 mb-1 body-content">
         @RenderBody()
         <hr />
         <footer>

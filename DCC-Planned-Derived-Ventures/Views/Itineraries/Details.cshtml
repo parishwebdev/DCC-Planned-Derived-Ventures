@@ -6,85 +6,104 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>Itinerary</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.MilesAroundRoute)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.MilesAroundRoute)
-        </dd>
-
-
-
-
-    </dl>
-
-    @foreach (var address in Model.Addresses)
+@helper DisplayHtml()
     {
-        if (Model.DestinationId == address.ID)
+        <h4>Itinerary</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.MilesAroundRoute)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MilesAroundRoute)
+            </dd>
+
+
+
+
+        </dl>
+
+        foreach (var address in Model.Addresses)
         {
-            <div class="text-bold">
-                <h4>Destination Address</h4>
+            if (Model.DestinationId == address.ID)
+            {
+                <div class="text-bold">
+                    <h4>Destination Address</h4>
+
+                    @Html.DisplayFor(item => address.AddressLine)
+                    @Html.DisplayFor(item => address.City.name)
+                    @Html.DisplayFor(item => address.State.name)
+                    @Html.DisplayFor(item => address.ZipCode.ZipCode)
+                </div>
+            }
+            else if (Model.DestinationId != address.ID)
+            {
 
                 @Html.DisplayFor(item => address.AddressLine)
                 @Html.DisplayFor(item => address.City.name)
                 @Html.DisplayFor(item => address.State.name)
                 @Html.DisplayFor(item => address.ZipCode.ZipCode)
-            </div>
+            }
         }
-        else if (Model.DestinationId != address.ID)
-        {
+}
 
-            @Html.DisplayFor(item => address.AddressLine)
-            @Html.DisplayFor(item => address.City.name)
-            @Html.DisplayFor(item => address.State.name)
-            @Html.DisplayFor(item => address.ZipCode.ZipCode)
-        }
-    }
+@DisplayHtml()
 
-    <br />  
-    <div class="row">
 
-        <div class="col-md-7 ">
+@{ string contentHtml = DisplayHtml().ToHtmlString(); }
 
-            <h4>View Places By Categories: </h4>
-            <div class="row my-2">
-                <div class="col-sm-6">
-                    <div class="card text-white bg-primary">
-                        <div class="card-body text-center">
-                            <h4 class="card-title p2 mt-2 mb-4">Attractions &nbsp;<i class="fas fa-magnet"></i> </h4>
+<h6 class="mt-4 text-bold">Send To A Friend or Family Member:</h6>
+@using (Html.BeginForm("EmailItinerary", "Itineraries", FormMethod.Post, new { @class = "form-inline"}))
+{
+    <div class="form-group">
+        @Html.TextBox("To", null, new { type = "email", @class = "form-control", placeholder = "Email" })
+    </div>
+    @Html.Hidden("Body", contentHtml, null)
+    <input class="btn btn-primary" type="submit" value="Send Email">
 
-                            <a href="@Url.Action("PlaceSubCategories","Itineraries",new { itineraryID = Model.ID, mainCat = "attractions" })" class="btn btn-outline-light btn-lg mb-1"> &nbsp; View &nbsp; <i class="fas fa-chevron-circle-right"></i></a>
-                        </div>
+}
+
+
+<br />
+<div class="row">
+
+    <div class="col-md-7 ">
+
+        <h4>View Places By Categories: </h4>
+        <div class="row my-2">
+            <div class="col-sm-6">
+                <div class="card text-white bg-primary">
+                    <div class="card-body text-center">
+                        <h4 class="card-title p2 mt-2 mb-4">Attractions &nbsp;<i class="fas fa-magnet"></i> </h4>
+
+                        <a href="@Url.Action("PlaceSubCategories","Itineraries",new { itineraryID = Model.ID, mainCat = "attractions" })" class="btn btn-outline-light btn-lg mb-1"> &nbsp; View &nbsp; <i class="fas fa-chevron-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-sm-6">
-                    <div class="card text-white bg-primary">
-                        <div class="card-body text-center">
-                            <h4 class="card-title p2 mt-2 mb-4">Food &nbsp;<i class="fas fa-utensils"></i> </h4>
+            </div>
+            <div class="col-sm-6">
+                <div class="card text-white bg-primary">
+                    <div class="card-body text-center">
+                        <h4 class="card-title p2 mt-2 mb-4">Food &nbsp;<i class="fas fa-utensils"></i> </h4>
 
-                            <a href="@Url.Action("PlaceSubCategories","Itineraries",new {itineraryID = Model.ID, mainCat = "food" })" class="btn btn-outline-light btn-lg mb-1"> &nbsp; View &nbsp; <i class="fas fa-chevron-circle-right"></i></a>
-                        </div>
+                        <a href="@Url.Action("PlaceSubCategories","Itineraries",new {itineraryID = Model.ID, mainCat = "food" })" class="btn btn-outline-light btn-lg mb-1"> &nbsp; View &nbsp; <i class="fas fa-chevron-circle-right"></i></a>
                     </div>
                 </div>
             </div>
-
         </div>
 
     </div>
-    <p>
-        <a class="nav-link" href="@Url.Action("Edit", "Itineraries", new { id = Model.ID })">  <i class="fas fa-edit"></i> </a>
-        
-    </p>
+
+</div>
+<p>
+    <a class="btn btn-outline-primary" href="@Url.Action("Edit", "Itineraries", new { id = Model.ID })">  <i class="fas fa-edit"></i> </a>
+
+</p>
